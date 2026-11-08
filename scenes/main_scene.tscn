@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dls2fbpmt58dy"]
+
+[ext_resource type="Script" uid="uid://ov0gwv8133no" path="res://script/Terrain.cs" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://crkogdhmoln7t" path="res://script/Camera.cs" id="2_pw63i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w2twt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pw63i"]
+
+[sub_resource type="Sky" id="Sky_w2twt"]
+sky_material = SubResource("ProceduralSkyMaterial_pw63i")
+
+[sub_resource type="Environment" id="Environment_w2twt"]
+background_mode = 2
+sky = SubResource("Sky_w2twt")
+
+[node name="Node3D" type="Node3D" unique_id=790924831]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1771446351]
+mesh = SubResource("BoxMesh_w2twt")
+script = ExtResource("1_w2twt")
+Resolution = 256
+Size = 512.0
+HeightScale = 35.0
+Frequency = 0.02
+Octaves = 8
+Seed = 75886
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=144824407]
+transform = Transform3D(1, 0, 0, 0, 0.96909064, 0.2467051, 0, -0.2467051, 0.96909064, 0, 60, 92.765755)
+environment = SubResource("Environment_w2twt")
+script = ExtResource("2_pw63i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1580017220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
